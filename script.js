@@ -77,10 +77,10 @@ const showResults = async (pokeObj)=> {
 
   imageZone.innerHTML += `<img id="sprite" src="${sprites.front_default}">`
 
-  pokeId.innerText = `ID: ${id}`;;
+  pokeId.innerText = id;
   pokeName.innerText = name.toUpperCase();
-  pokeWeight.innerText = `WEIGHT: ${weight}`;
-  pokeHeight.innerText = `HEIGHT: ${height}`;
+  pokeWeight.innerText = weight;
+  pokeHeight.innerText = height;
 
   let foundStats = {}
   stats.forEach((entry)=>{
@@ -89,13 +89,12 @@ const showResults = async (pokeObj)=> {
 
   for (let key of Object.keys(statEls) ) {
     console.log(`${key}: ${foundStats[key]}`)
-    statEls[key].innerText =
-    `${key}: ${foundStats[key]}`;
+    statEls[key].innerText = foundStats[key];
   }
 
   for (const entry of types) {
     let type = entry.type.name
-    pokeTypes.innerHTML += `<div class="type ${type}">${type.toUpperCase()}</div>`
+    pokeTypes.innerHTML += `<span class="type ${type}">${type.toUpperCase()}</span>`;
   }
   
 }
